@@ -4,8 +4,4 @@ Adding text from repo for egit conflict
 
 Adding my change  9/17
 
-<<<<<<< HEAD
-Adding from local 9/17 4:35
-=======
 Adding from Repo
->>>>>>> origin/Branch2
