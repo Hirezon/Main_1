@@ -19,7 +19,9 @@ public static String getDelimitEmails(String str, String xyz) {
 				if (emailstr.indexOf(",") >= 0) {
 					String[] emailSplit = emailstr.split(",");
 					outer : for (int i = 0; i < emailSplit.length; i++) {
-						if (email == emailSplit[i]) {
+
+						if (email.equalsIgnoreCase(emailSplit[i])) {
+
 							flag = true;
 							break outer;
 						}
