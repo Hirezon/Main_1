@@ -1,30 +1,119 @@
-Adding from Dektop 44
-adding From Desktop 11111
-Adding new text to file.. from eclipse
-Adding from Repo44
-Adding text from repo for egit conflict
-Adding from Dektop 44
-Adding my change  9/17
-
-Adding from Repo
-
-Adding from Desktop 22
-
---------------xxx
-
-Adding from Repo22
-
-Adding from Repo44
-Adding from Dektop 33
-Adding from Dektop 44
 
 
-918 change 111
+change 11234
 
+change from repo
 
+public static String getDelimitEmails(String str, String xyz) {
 
-918 change 2 from dektop
+		String emailstr = "";
+		
+		if (str != null) {
+			// Compile regular expression
+			//String patternStr = "[a-zA-Z0-9\\-\\.]+@[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,4}";
+			String patternStr =
+				"[a-zA-Z0-9\\_\\-\\.]+@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z0-9\\-\\.]{2,3}|[a-zA-Z0-9\\-\\.]{1,3})(\\]?)";
+			Pattern p = Pattern.compile(patternStr);
+			Matcher m = p.matcher(str);
+			int start = 0;
 
+			while (m.find()) {
+				String email = m.group();
+				email = email.toLowerCase();
+				boolean flag = false;
+				if (emailstr.indexOf(",") >= 0) {
+					String[] emailSplit = emailstr.split(",");
+					outer : for (int i = 0; i < emailSplit.length; i++) {
 
-918 change 2 from repo
+						if (email.equalsIgnoreCase(emailSplit[i])) {
 
+							flag = true;
+							break outer;
+						}
+						if (email.equals(emailSplit[i])) {
+							flag = true;
+							break outer;
+						}
+						if (email.startsWith("href")) {
+							flag = true;
+							break outer;
+						}
+					}
+					if (!flag) {
+						emailstr += email + ",";
+					}
+				} else {
+					emailstr += "," + email + ",";
+				}
+			}
+		}
+		return emailstr;
+	}
+	/**
+	 * Returns a String which displays the double value as a money string
+	 * TODO Has to be implemented
+	 * @param d The double value
+	 * @return String The money String
+	 */
+	public static String getDoubleAsPrettyMoneyString(double d) {
+		if (d == UNDEF) {
+			return "";
+		} else {
+			//TODO format this.
+			return "" + d;
+		}
+	}
+	/**
+	 * Returns a String representation of a double. This method sets the maximum
+	 * and minimum value of the double value to 2 and 2
+	 * @param d The double value
+	 * @return String The string representation of the double value
+	 */
+	public static String getDoubleAsPrettyString(double d) {
+		if (d == UNDEF) {
+			return "";
+		} else {
+			setMaxMinFractionNumberFormat(2, 2);
+			return "" + nf.format(d);
+		}
+	}
+	/**
+	 * Returns an ellipsed string 
+	 * @param str The String 
+	 * @param n The number of characters allowed to be displayed
+	 * @return A string which has n number of characters and the others replaced by ...
+	 */
+	public static String getElipsedString(String str, int n) {
+		if (str == null || str == "") {
+			str = "";
+			return str;
+		}
+		String strElipses = "...";
+		if (str.length() <= n) {
+			return str;
+		} else {
+			if (str.length() <= (n - strElipses.length())) {
+				return str + strElipses;
+			} else {
+				str = str.substring(0, n - strElipses.length());
+				return str + strElipses;
+			}
+		}
+	}
+	//start basejspservlet
+	/**
+	 * @deprecated Use com.ah.util.DisplayUtils.getPrettyString(HashMap, String)
+	 * @see #getPrettyString(HashMap,String)
+	 */
+	public static String getHashedString(HashMap hash, String strKey) {
+		String strRet = null;
+		if (hash != null) {
+			strRet = (String) hash.get(strKey);
+		}
+		if (strRet == null) {
+			strRet = "";
+		}
+		return strRet;
+	}
+
+other change 123
