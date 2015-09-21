@@ -1,8 +1,6 @@
 public static String getDelimitEmails(String str) {
 		String emailstr = "";
-		if (str == null || str.length() == 0) {
-			return emailstr;
-		}
+		
 		if (str != null) {
 			// Compile regular expression
 			//String patternStr = "[a-zA-Z0-9\\-\\.]+@[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,4}";
@@ -18,6 +16,10 @@ public static String getDelimitEmails(String str) {
 				if (emailstr.indexOf(",") >= 0) {
 					String[] emailSplit = emailstr.split(",");
 					outer : for (int i = 0; i < emailSplit.length; i++) {
+						if (email.equals(emailSplit[i])) {
+							flag = true;
+							break outer;
+						}
 						if (email.equals(emailSplit[i])) {
 							flag = true;
 							break outer;
