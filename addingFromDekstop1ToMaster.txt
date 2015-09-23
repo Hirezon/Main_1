@@ -1,9 +1,12 @@
-<<<<<<< HEAD
-=======
+
 adding change to main
 
 
->>>>>>> master
+change from brach 2
+
+
+adding change to main
+
 111111111111111111111111111111111111111111111111111111111111
 jjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
 change 11234
